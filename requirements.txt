@@ -5,7 +5,7 @@ psycopg2==2.7.3.1
 stripe==1.70.0
 SecretStorage==2.0.0
 argparse==1.2.1
-chardet==2.0.1
+chardet==2.2.1
 colorama==0.2.5
 configobj==4.7.2
 duplicity==0.6.23
