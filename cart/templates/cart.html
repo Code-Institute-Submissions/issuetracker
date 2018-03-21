@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% load bootstrap_tags %}
+
+{% block page_title %}
+    Issue Tracker|List Packages
+{% endblock %}
+
+{% block page_heading %}
+    <div class="container-fluid fluid container-fluid-bg-2">
+        <h1 class="text-center">Issue Tracker</h1>
+        <h2 class="text-center">A plan for every business</h2>
+        <h3 class="text-center"></h3>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid container-fluid-bg-1">
+        <div class="container">
+            <div class="row">
+            {% for item in cart_items %}
+                <div class="col-xs-4">
+                    <h3>{{ item.package.description }}</h3>
+                    
+                    <p>
+                        <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Remove</button>
+                        </form>
+                    </p>
+                </div>
+            {% endfor %}
+            </div>
+            {% if package_count > 0 %}
+                <p><h4>Total</h4></p>
+                <p><span class="glyphico glyphico-euro" aria-hidden="true"></span><h4>{{ total }}</h4></p>
+                <a href="{% url 'checkout' %}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Checkout</a>
+            {% else %}
+                <a href="{% url 'index' %}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Continue Shopping</a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

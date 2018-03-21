@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% load bootstrap_tags %}
+
+{% block head_js %}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-queue/1.0.7/d3-queue.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+
+    <!-- Static CSS and JS library -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+{% endblock head_js %}
+
+{% block page_title %}
+    Issue Tracker|Ticket Detail
+{% endblock %}
+
+{% block page_heading %}
+    <div class="container-fluid fluid container-fluid-bg-2">
+        <h1 class="text-center">Chart</h1>
+        <h2 class="text-center">If you have any problem do not hesitate to write to us</h2>
+    </div>
+{% endblock %}
+
+{% block content %}
+    
+    <div class="container-fluid container-fluid-bg-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6">
+                    <canvas id="BarChart" width="400" height="400"></canvas>
+                </div>
+                <div class="col-xs-6">
+                    <canvas id="PieChart" width="400" height="400"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script type="text/javascript" src="{% static 'lib/js/queue.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+    {{ user }}'s Profile
+{% endblock %}
+
+{% block page_heading %}
+    <div class="container-fluid fluid container-fluid-bg-2">
+        <h1 class="text-center">Issue Tracker</h1>
+        <h2 class="text-center">A plan for every business</h2>
+        <h3 class="text-center"></h3>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid container-fluid-bg-1">
+        <div class="container">
+            <p class="text-right"><em>{{ profile.email }}</em></p>
+            <p class="text-right"><em>You have done <strong>{{ Total_orders }}</strong> orders with us. Thank you.</em></p>
+            <div class="row">
+            {% for ticket in tickets %}
+                <div class="col-xs-10">
+                    <h3>{{ ticket.title }} </h3>
+                    <p>{{ ticket.issue }}</p>
+                    <p>{{ ticket.notes }}</p>
+                    
+                    <p class="text-primary text-uppercase"><strong>{{ user }}</strong></p>
+                    <p><span class="boldtext">Reported by: </span>{{ ticket.reported_by }}</p>
+                    <p><span class="boldtext">Reported on: </span>{{ ticket.reported_on }}</p>
+                    <p><span class="boldtext">Priority: </span>{{ ticket.priority }}</p>
+                    
+                    {% if ticket.verified %}
+                        <p class="text-success"><span class="glyphicon glyphicon-thumbs-up"></span> Verified</p>
+                        <span class="text-success">Resolution: {{ ticket.resolution }}</span>
+                        <p><span class="text-success">Status: {{ ticket.status }}</span></p>
+                    {% else %}
+                        <p><span class="text-danger">Status: {{ ticket.status }}</span></p>
+                    {% endif %}
+                <hr>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+

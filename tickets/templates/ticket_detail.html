@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% load bootstrap_tags %}
+
+
+
+{% block page_title %}
+    Issue Tracker|Ticket Detail
+{% endblock %}
+
+{% block page_heading %}
+    <div class="container-fluid fluid container-fluid-bg-2">
+        <h1 class="text-center">Ticket Detail</h1>
+        <h2 class="text-center">If you have any problem do not hesitate to write to us</h2>
+        <h3 class="text-center"></h3>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid container-fluid-bg-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-10">
+                    <h3>{{ ticket.title }}</h3>
+                    <p>{{ ticket.issue }}</p>
+                    <p>{{ ticket.notes }}</p>
+                    
+                    <p><span class="boldtext">Reported by: </span>{{ ticket.reported_by }}</p>
+                    <p><span class="boldtext">Reported on: </span>{{ ticket.reported_on }}</p>
+                    <p><span class="boldtext">Priority: </span>{{ ticket.priority }}</p>
+
+                    
+                    {% if ticket.verified %}
+                        <p class="text-success"><span class="glyphicon glyphicon-thumbs-up"></span> Verified</p>
+                        <span class="text-success">Resolution: {{ ticket.resolution }}</span>
+                        <p><span class="text-success">Status: {{ ticket.status }}</span></p>
+                    {% else %}
+                        <p><span class="text-danger">Status: {{ ticket.status }}</span></p>
+                        <a href="{% url 'edit_ticket' ticket.id %}" class="btn btn-default">Edit Ticket</a>
+                    {% endif %}
+                    
+                    <a href="{% url 'get_tickets' %}" class="btn btn-default">Back to Tickets</a>
+                    <p class="boldtext">Views: <strong>{{ ticket.views }}</strong></p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+{% endblock %}

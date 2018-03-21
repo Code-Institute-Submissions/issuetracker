@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% load bootstrap_tags %}
+
+{% block page_title %}
+    Issue Tracker|List Packages
+{% endblock %}
+{% block head_js %}
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+{% endblock %}
+{% block page_heading %}
+    <div class="container-fluid fluid container-fluid-bg-2">
+        <h1 class="text-center">Issue Tracker</h1>
+        <h2 class="text-center">A plan for every business</h2>
+        <h3 class="text-center"></h3>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid container-fluid-bg-1">
+        <div class="container">
+            
+            <div class="row">
+              {% for package in packages %}
+              <div class="col-xs-4">
+                  
+                  <ul class="list-group">
+                      <li class="list-group-item list-group-item-info">{{ package.description }}<span class="badge">{{ package.price }} $</span></li>
+                      <li class="list-group-item list-group-item-danger">{{ package.features1 }}</li>
+                      <li class="list-group-item list-group-item-success">{{ package.features2 }}</li>
+                      <li class="list-group-item list-group-item-success">{{ package.features3 }}</li>
+                      <li class="list-group-item list-group-item-success">{{ package.features4 }}</li>
+                  </ul>
+                    <form method="post" action="{% url 'add_to_cart' package.id %}">
+                        {% csrf_token %}
+                        <div class="input-group">
+                            <input id="quantity" name="quantity" type="hidden" min="1" max="99" class="form-control" placeholder="Quantity" value="1">
+                            
+                            <button class="btn btn-success" type="submit" onclick="function_cart">Buy</button>
+                        </div>
+                    </form>
+              </div>
+              {% endfor %}
+            </div>
+           
+        </div>
+    </div>
+{% endblock %}
