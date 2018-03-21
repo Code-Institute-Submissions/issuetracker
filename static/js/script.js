@@ -1,4 +1,5 @@
-var endpoint = 'https://issue-tracker-zainshafiq.c9users.io/charts/api/data/'
+//var endpoint = 'https://issue-tracker-zainshafiq.c9users.io/charts/api/data/'
+var endpoint = 'https://issue-tracker-zain.herokuapp.com/charts/api/data/'
 var title = []
 var user_profile = []
 var tot_views= []
