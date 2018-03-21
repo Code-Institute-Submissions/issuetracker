@@ -1,3 +1,8 @@
+Django==1.11.6
+dj-database-url==0.4.2
+django-storages==1.6.5
+psycopg2==2.7.3.1
+stripe==1.70.0
 BzrTools==2.6.0
 SecretStorage==2.0.0
 argparse==1.2.1
