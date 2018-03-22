@@ -21,9 +21,7 @@ def get_charts(request):
 @login_required
 def get_data(request):
     """
-    Create a view that will return a chart
-    and render
-    them to the 'request_chart.html'
+    Sending all ticket in json format to api/data/
     """
     x='reported_by'
     
