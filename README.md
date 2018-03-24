@@ -171,3 +171,7 @@ displayed to populate data for purchase orders.
  - In development, all static files are hosted at 'base_url/static/...' directory.
  - Static files such as CSS, Javascript and images can be found in the static subdirectory.
  - Templates can be found in the templates subdirectory.
+
+
+
+ [![Build Status](https://travis-ci.org/zainshafiq2017/issuetracker.svg?branch=master)](https://travis-ci.org/zainshafiq2017/issuetracker)
