@@ -17,6 +17,7 @@
 {% block content %}
     <div class="container-fluid container-fluid-bg-1">
         <div class="container">
+            <!-- Showing all ticket -->
             {% for ticket in tickets %}
             <div class="row">
                 <div class="col-xs-10">
@@ -34,7 +35,7 @@
                     {% else %}
                         <p><span class="text-danger">Status: {{ ticket.status }}</span></p>
                     {% endif %}
-                    
+                    <!-- Link to ticket detail page by specific id -->
                     <p><a href="{% url 'ticket_detail' ticket.id %}" class="btn btn-default">Read more</a></p>
                 </div>
             </div>

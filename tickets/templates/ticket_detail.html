@@ -29,7 +29,8 @@
                     <p><span class="boldtext">Reported on: </span>{{ ticket.reported_on }}</p>
                     <p><span class="boldtext">Priority: </span>{{ ticket.priority }}</p>
 
-                    
+                    <!-- Showing a ticket in detail-->
+                    <!-- if the request has not been processed then I will display the button to edit otherwise user can't see edit button. -->
                     {% if ticket.verified %}
                         <p class="text-success"><span class="glyphicon glyphicon-thumbs-up"></span> Verified</p>
                         <span class="text-success">Resolution: {{ ticket.resolution }}</span>

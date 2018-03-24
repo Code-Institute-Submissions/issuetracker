@@ -18,6 +18,7 @@
     <div class="container-fluid container-fluid-bg-1">
         <div class="container">
             <h1>New Ticket</h1>
+            <!-- Form to fill out or modify an existing ticket -->
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form | as_bootstrap }}

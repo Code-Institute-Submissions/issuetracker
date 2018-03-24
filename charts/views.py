@@ -21,11 +21,8 @@ def get_charts(request):
 @login_required
 def get_data(request):
     """
-    Sending all ticket in json format to api/data/
+    Sending all ticket in json format to api/data/ for graphs
     """
-    x='reported_by'
     
     ticket = Ticket.objects.all()
-    
     return HttpResponse(serializers.serialize('json', list(ticket)), content_type="application/json")
-    #return render(request, "request_chart.html")

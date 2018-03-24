@@ -61,10 +61,8 @@ Run the development server
 
 Open your browser and navigate to http://127.0.0.1:5000
 
-To import data to MongoDB is the following command:
-mongoimport -d donorsUSA -c projects --type csv --file opendata_projects_clean.csv --headerline
-
 ### DEPLOYING TO HEROKU
+ - Before deploying add your deployment domain in ALLOWED_HOSTS.
  - Signup for Heroku
  - Login to Heroku and download the Heroku Toolbelt
  - Once installed, open command line and run the following command `heroku login` and follow prompts.
@@ -113,6 +111,7 @@ that is presented in the appropriate page later by pressing the save button.
 displayed to populate data for purchase orders. 
 
 ## DESCRIPTION OF FUNCTIONS IN PYTHON
+ - The views.py file render the content html pages. I used also to read record from a database, filter them and send to specific template.
 ### ticket (views.py)
  - Piece of code:
    ```
@@ -144,6 +143,11 @@ displayed to populate data for purchase orders.
    ticket = Ticket.objects.all()
    return HttpResponse(serializers.serialize('json', list(ticket)), content_type="application/json")
    ```
+## Adding apps
+ - You can add django apps even if it's from another project. The django apps are studied so that they can be reused.
+ - Download app from github that interests you
+ - Create folder in your root and upload all files concerning your existing app
+ - In settings.py add the project name of the new app to INSTALLED_APPS list
 
 ## TECHNOLOGY USED
  - [Bootstrap](https://getbootstrap.com/docs/4.0/getting-started/introduction/)
@@ -164,5 +168,6 @@ displayed to populate data for purchase orders.
  - I've used Mozilla browser on creating this web app. Mobile browsers should support all styles and screen size.
 
 ## FILE LOCATIONS
+ - In development, all static files are hosted at 'base_url/static/...' directory.
  - Static files such as CSS, Javascript and images can be found in the static subdirectory.
  - Templates can be found in the templates subdirectory.

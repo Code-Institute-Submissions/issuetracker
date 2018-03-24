@@ -21,16 +21,17 @@
         <div class="container">
             
             <div class="row">
-              {% for package in packages %}
-              <div class="col-xs-4">
+                <!-- Showing all packages available for users subscriptions  -->
+                {% for package in packages %}
+                <div class="col-xs-4">
                   
-                  <ul class="list-group">
-                      <li class="list-group-item list-group-item-info">{{ package.description }}<span class="badge">{{ package.price }} $</span></li>
-                      <li class="list-group-item list-group-item-danger">{{ package.features1 }}</li>
-                      <li class="list-group-item list-group-item-success">{{ package.features2 }}</li>
-                      <li class="list-group-item list-group-item-success">{{ package.features3 }}</li>
-                      <li class="list-group-item list-group-item-success">{{ package.features4 }}</li>
-                  </ul>
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-info">{{ package.description }}<span class="badge">{{ package.price }} $</span></li>
+                        <li class="list-group-item list-group-item-danger">{{ package.features1 }}</li>
+                        <li class="list-group-item list-group-item-success">{{ package.features2 }}</li>
+                        <li class="list-group-item list-group-item-success">{{ package.features3 }}</li>
+                        <li class="list-group-item list-group-item-success">{{ package.features4 }}</li>
+                    </ul>
                     <form method="post" action="{% url 'add_to_cart' package.id %}">
                         {% csrf_token %}
                         <div class="input-group">
@@ -39,8 +40,8 @@
                             <button class="btn btn-success" type="submit" onclick="function_cart">Buy</button>
                         </div>
                     </form>
-              </div>
-              {% endfor %}
+                </div>
+                {% endfor %}
             </div>
            
         </div>
